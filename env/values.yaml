@@ -38,3 +38,17 @@ jenkins:
     Global:
       EnvVars:
         TILLER_NAMESPACE: kube-system
+expose:
+  config:
+    domain: 35.247.56.92.nip.io
+    exposer: Ingress
+    http: "true"
+    tlsacme: "true"
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        TILLER_NAMESPACE: kube-system
